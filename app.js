@@ -60,7 +60,7 @@ app.get("/", function (req, res) {
     //  res.redirect("/");
     //} else {
     res.render("list", {
-      listTitle: "Personal List",
+      listTitle: "Home",
       day: day,
       items: item,
     });
@@ -97,7 +97,7 @@ app.post("/", function (req, res) {
   const item = new Item({
     name: itemName,
   });
-  if (listName === "Personal List") {
+  if (listName === "Home") {
     item.save();
     res.redirect("/");
   } else {
@@ -113,7 +113,7 @@ app.post("/delete", function (req, res) {
   const checkeditemid = req.body.checkbox;
   const listName = req.body.listName;
   console.log(listName);
-  if (listName === "Personal List") {
+  if (listName === "Home") {
     Item.findByIdAndDelete(checkeditemid, function (err) {
       if (!err) {
         console.log(err);
