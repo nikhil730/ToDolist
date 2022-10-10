@@ -79,7 +79,7 @@ app.get("/:customlistname", function (req, res) {
           //items: defaultmsgs,
         });
         list.save();
-        res.redirect("/" + customlistname + "");
+        res.redirect("/" + customlistname);
       } else {
         res.render("list", {
           listTitle: FoundList.name,
@@ -133,10 +133,6 @@ app.post("/delete", function (req, res) {
       }
     );
   }
-});
-
-app.post("/work", function (req, res) {
-  console.log(req.body);
 });
 
 let port = process.env.PORT;
