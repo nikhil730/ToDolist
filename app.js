@@ -2,12 +2,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
+const favicon = require("express-favicon");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(favicon(__dirname + "/public/favicon.png"));
 
 const dbname = "Todo_db";
 
