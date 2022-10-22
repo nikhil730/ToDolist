@@ -100,7 +100,9 @@ app.post("/", function (req, res) {
     name: itemName,
   });
   if (listName === "Home") {
-    item.save();
+    if (item.name !== "") {
+      item.save();
+    }
     res.redirect("/");
   } else {
     List.findOne({ name: listName }, function (err, foundList) {
