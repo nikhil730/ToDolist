@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const favicon = require("express-favicon");
+const dotenv = require("dotenv");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,16 +11,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(favicon(__dirname + "/public/favicon.png"));
-
-const dbname = "Todo_db";
+dotenv.config();
 
 mongoose
-  .connect(
-    "mongodb+srv://nikhil:.eebuL5tURPiNtx@cluster0.8jqmdrx.mongodb.net/" +
-      dbname +
-      "",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(process.env.connection_url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
 
   .then(() => {
     console.log("MongoDB Connected…");
