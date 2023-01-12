@@ -34,7 +34,7 @@ const itemschema = new mongoose.Schema({
 const Item = mongoose.model("Item", itemschema);
 
 const defaultmsg = new Item({
-  name: "Add a Task",
+  name: "Add a Task here",
 });
 
 const defaultmsgs = [defaultmsg];
