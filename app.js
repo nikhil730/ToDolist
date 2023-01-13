@@ -148,5 +148,5 @@ if (port == null || port == "") {
 app.listen(port, function () {
   console.log("Server is runing");
 });
-
+module.exports = app;
 module.exports.handler = serverless(app);
