@@ -4,6 +4,7 @@ const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const favicon = require("express-favicon");
 const dotenv = require("dotenv");
+const serverless = require("serverless-http");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -147,3 +148,5 @@ if (port == null || port == "") {
 app.listen(port, function () {
   console.log("Server is runing");
 });
+
+module.exports.handler = serverless(app);
