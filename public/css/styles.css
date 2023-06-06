@@ -147,4 +147,16 @@ html {
     border-radius: 20px;
     box-shadow: 5px 5px 10px 2px grey;
     }
+    button {
+      min-height: 42px;
+    width: 50px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: #71c9ce;
+    color: #fff;
+    font-size: 30px;
+    padding-bottom: 0px;
+    margin-right: 5px;
+    border-width: 0;
+    }
 }
